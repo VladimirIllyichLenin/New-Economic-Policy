@@ -1,0 +1,195 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JComponent;
+public class World_Gen_Test
+    {
+    public static void draw (Graphics g)
+    {
+        int x = 500;
+        int y = 500;
+        Color GREEN = new Color(0,200,122);
+        Color BLUE = new Color(0,0,255);
+        g.setColor(BLUE);
+        g.fillRect(0,0,1500,1000);
+        for (int i = 0; i < 5000; i++)
+        {
+            double decider = (1 + (int)(Math.random()*1000))/10;
+            int percentage1 = 1 + (int)(Math.random()*100);
+            int percentage2 = 1 + (int)(Math.random()*100);
+            int percentage3 = 1 + (int)(Math.random()*100);
+            int percentage4 = 1 + (int)(Math.random()*100);
+            if (decider > 0 && decider <= 68.3)
+            {
+            if (percentage1 > 0 && percentage1 <= 5)
+            {
+                x = x + 10;
+                y = y + 10;
+            }
+            else if (percentage1 > 5 && percentage1 <= 10)
+            {
+                x = x - 10;
+                y = y + 10;
+            }
+            else if (percentage1 > 10 && percentage1 <= 15)
+            {
+                x = x - 10;
+                y = y - 10;
+            }
+            else if (percentage1 > 15 && percentage1 <= 20)
+            {
+                x = x + 10;
+                y = y - 10;
+            }
+            else if (percentage1 > 20 && percentage1 <= 55)
+            {
+                x = x + 10;
+            }
+            else if (percentage1 > 55 && percentage1 <= 60)
+            {
+                y = y + 10;
+            }
+            else if (percentage1 > 60 && percentage1 <= 65)
+            {
+                y = y - 10;
+            }else if (percentage1 > 65 && percentage1 <= 100)
+            {
+                x = x - 10;
+            }
+            }
+            else if (decider > 68.3 && decider <= 95.5)
+            {
+            if (percentage2 > 0 && percentage2 <= 5)
+            {
+                x = x + 20;
+                y = y + 20;
+            }
+            else if (percentage2 > 5 && percentage2 <= 10)
+            {
+                x = x - 20;
+                y = y + 20;
+            }
+            else if (percentage2 > 10 && percentage2 <= 15)
+            {
+                x = x - 20;
+                y = y - 20;
+            }
+            else if (percentage2 > 15 && percentage2 <= 20)
+            {
+                x = x + 20;
+                y = y - 20;
+            }
+            else if (percentage2 > 20 && percentage2 <= 40)
+            {
+                x = x + 20;
+            }
+            else if (percentage2 > 40 && percentage2 <= 60)
+            {
+                y = y + 20;
+            }
+            else if (percentage2 > 60 && percentage2 <= 80)
+            {
+                y = y - 20;
+            }else if (percentage2 > 80 && percentage2 <= 100)
+            {
+                x = y - 20;
+            }
+            }
+            else if (decider > 95.5 && decider <= 99.7)
+            {
+            if (percentage3 > 0 && percentage3 <= 5)
+            {
+                x = x + 30;
+                y = y + 30;
+            }
+            else if (percentage3 > 5 && percentage3 <= 10)
+            {
+                x = x - 30;
+                y = y + 30;
+            }
+            else if (percentage3 > 10 && percentage3 <= 15)
+            {
+                x = x - 30;
+                y = y - 30;
+            }
+            else if (percentage3 > 15 && percentage3 <= 20)
+            {
+                x = x + 30;
+                y = y - 30;
+            }
+            else if (percentage3 > 20 && percentage3 <= 40)
+            {
+                x = x + 30;
+            }
+            else if (percentage3 > 40 && percentage3 <= 60)
+            {
+                y = y + 30;
+            }
+            else if (percentage3 > 60 && percentage3 <= 80)
+            {
+                y = y - 30;
+            }else if (percentage3 > 80 && percentage3 <= 100)
+            {
+                x = y - 30;
+            }
+            }
+            else if (decider > 99.7 && decider <= 100)
+            {
+            if (percentage4 > 0 && percentage4 <= 5)
+            {
+                x = x + 40;
+                y = y + 40;
+            }
+            else if (percentage4 > 5 && percentage4 <= 10)
+            {
+                x = x - 40;
+                y = y + 40;
+            }
+            else if (percentage4 > 10 && percentage4 <= 15)
+            {
+                x = x - 40;
+                y = y - 40;
+            }
+            else if (percentage4 > 15 && percentage4 <= 20)
+            {
+                x = x + 40;
+                y = y - 40;
+            }
+            else if (percentage4 > 20 && percentage4 <= 40)
+            {
+                x = x + 40;
+            }
+            else if (percentage4 > 40 && percentage4 <= 60)
+            {
+                y = y + 40;
+            }
+            else if (percentage4 > 60 && percentage4 <= 80)
+            {
+                y = y - 40;
+            }else if (percentage4 > 80 && percentage4 <= 100)
+            {
+                x = y - 40;
+            }
+            }
+            g.setColor(GREEN);
+            g.fillRect(x, y, 10, 10);
+        }
+    }
+    public static void main(String[] args)
+    {
+        JFrame frame = new JFrame();
+        final int FRAME_WIDTH = 1275;
+        final int FRAME_HIGHT = 975;
+        frame.setSize(FRAME_WIDTH, FRAME_HIGHT);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JComponent component = new JComponent()
+        {
+            public void paintComponent(Graphics graph)
+            {
+                draw(graph);
+            }
+        };
+        frame.add(component);
+        frame.setVisible(true);
+    }
+}
